@@ -48,4 +48,4 @@ To serve the threejs start scene at localhost:8000:
 
 - `npm run three`: A local server created under `http://localhost:8000`.
 
-- Live Reloading is enabled by default on indes.js only, you will need to refresh we using the threejs server
+Live Reloading is enabled by default on index.js only, you will need to refresh when using the threejs server
