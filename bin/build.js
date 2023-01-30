@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
 import * as esbuild from "esbuild";
+import { glsl } from "esbuild-plugin-glsl";
 
 // Config output
 const BUILD_DIRECTORY = "dist";
 const PRODUCTION = process.env.NODE_ENV === "production";
 
 // Config entrypoint files
-const ENTRY_POINTS = ["src/index.ts"];
+const ENTRY_POINTS = ["src/index.ts", "src/scene.js"];
 
 // Config dev serving
 const LIVE_RELOAD = !PRODUCTION;
@@ -21,6 +22,11 @@ const context = await esbuild.context({
   sourcemap: !PRODUCTION,
   target: PRODUCTION ? "es2019" : "esnext",
   inject: LIVE_RELOAD ? ["./bin/live-reload.js"] : undefined,
+  plugins: [
+    glsl({
+      minify: true,
+    }),
+  ],
   define: {
     SERVE_PORT: `${SERVE_PORT}`,
   },

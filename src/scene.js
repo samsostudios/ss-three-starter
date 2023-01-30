@@ -1,5 +1,6 @@
-// import fragment from "./shaders/fragment.glsl";
-// import vertex from "./shaders/vertex.glsl";
+/* eslint-disable simple-import-sort/imports */
+import fragment from "./shaders/fragment.glsl";
+import vertex from "./shaders/vertex.glsl";
 import { gsap } from "gsap";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -48,13 +49,12 @@ export default class Sketch {
   addObject() {
     this.geometry = new THREE.PlaneGeometry(1, 1);
     this.material = new THREE.MeshNormalMaterial({ side: THREE.DoubleSide });
-    // this.shaderMaterial = new THREE.ShaderMaterial({
-    //   fragmentShader: fragment,
-    //   vertexShader: fragment,
-    //   uniforms: {progress},
-    // });
+    this.shaderMaterial = new THREE.ShaderMaterial({
+      fragmentShader: fragment,
+      vertexShader: vertex,
+    });
 
-    this.mesh = new THREE.Mesh(this.geometry, this.material);
+    this.mesh = new THREE.Mesh(this.geometry, this.shaderMaterial);
     this.scene.add(this.mesh);
   }
 
