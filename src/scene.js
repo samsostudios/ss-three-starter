@@ -1,16 +1,16 @@
 /* eslint-disable simple-import-sort/imports */
-import fragment from "./shaders/fragment.glsl";
-import vertex from "./shaders/vertex.glsl";
-import { gsap } from "gsap";
-import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import fragment from './shaders/fragment.glsl';
+import vertex from './shaders/vertex.glsl';
+import { gsap } from 'gsap';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-console.log("/// threeJS ///");
+console.log('/// threeJS ///');
 
 export default class Sketch {
   constructor() {
     this.time = 0;
-    this.container = document.getElementById("threeSection");
+    this.container = document.getElementById('threeSection');
 
     this.init();
     this.createControls();
@@ -25,17 +25,10 @@ export default class Sketch {
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    document
-      .getElementById("threeSection")
-      .appendChild(this.renderer.domElement);
+    document.getElementById('threeSection').appendChild(this.renderer.domElement);
 
     // Camera
-    this.camera = new THREE.PerspectiveCamera(
-      70,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      10
-    );
+    this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 10);
     this.camera.position.z = 1;
 
     // Scene
@@ -59,7 +52,7 @@ export default class Sketch {
   }
 
   setupResize() {
-    window.addEventListener("resize", this.resize.bind(this));
+    window.addEventListener('resize', this.resize.bind(this));
   }
 
   resize() {
