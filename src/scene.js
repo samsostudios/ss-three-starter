@@ -21,6 +21,9 @@ export default class Sketch {
   }
 
   init() {
+    // GLTF LOADER
+    this.gltfLoader = new GLTFLoader();
+
     // Renderer
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setPixelRatio(window.devicePixelRatio);
@@ -40,13 +43,13 @@ export default class Sketch {
   }
 
   addObject() {
+    // BASE THREE SHADER
     this.geometry = new THREE.PlaneGeometry(1, 1);
     this.material = new THREE.MeshNormalMaterial({ side: THREE.DoubleSide });
     this.shaderMaterial = new THREE.ShaderMaterial({
       fragmentShader: fragment,
       vertexShader: vertex,
     });
-
     this.mesh = new THREE.Mesh(this.geometry, this.shaderMaterial);
     this.scene.add(this.mesh);
   }
@@ -75,4 +78,4 @@ export default class Sketch {
   }
 }
 
-new Sketch();
+// new Sketch();
