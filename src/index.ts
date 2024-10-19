@@ -1,8 +1,11 @@
-import Sketch from './scene.js';
+// import Sketch from '';
+import { threeScene } from './scene';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
   console.log('/// mainJS ///');
 
-  new Sketch();
+  threeScene();
+
+  // new Sketch();
 });
